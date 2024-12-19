@@ -5,7 +5,7 @@ npm-shrinkwrap.json
 *.log
 *.gz
 
-#secure
+# Environents
 .env
 
 # Coveralls
