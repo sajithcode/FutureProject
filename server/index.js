@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
+require('dotenv').config()
 
 
 
@@ -15,7 +16,7 @@ app.use(cors());
 
 // MySQL Connection
 mongoose.connect(
-  "mongodb+srv://sajithsampath721:Uj49BUdUaGc9wuzR@cluster0.7qao5.mongodb.net/crud"
+  process.env.MONGO_URI
 );
 
 const userSchema = new mongoose.Schema({
