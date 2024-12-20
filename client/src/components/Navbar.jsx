@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactSwitch from "react-switch";
+import SignInButton from "./SignInButton";
+// import { ContextCart } from "../hooks/CartContext";
 
 
 function Navbar() {
   const [theme, setTheme] = useState(true);
+    // const [items, setItems] = useContext(ContextCart);
+
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,12 +32,11 @@ function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="#">
-                  Home
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="#">
-                  Link
+                  {/* {items} */}
                 </Link>
               </li>
               <li className="nav-item dropdown">
@@ -66,12 +70,12 @@ function Navbar() {
               </li>
               <li className="nav-item">
                 <Link
-                  className="nav-link disabled"
+                  className="nav-link "
                   to="#"
                   
                   aria-disabled="true"
                 >
-                  Disabled
+                  <SignInButton />
                 </Link>
               </li>
             </ul>
@@ -88,7 +92,11 @@ function Navbar() {
             </form>
             <div>
 
-            <ReactSwitch />
+            <ReactSwitch 
+  checked={theme} 
+  onChange={() => setTheme(!theme)} 
+/>
+
             </div>
           </div>
         </div>
